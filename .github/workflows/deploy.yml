@@ -29,4 +29,4 @@ jobs:
         with:
           version: ${{ env.GITVERSION_MAJORMINORPATCH }}
           message: "Blockchain v.${{ env.GITVERSION_MAJORMINORPATCH }}"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.CREATE_TAG_TOKEN }}
