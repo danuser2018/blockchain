@@ -24,3 +24,9 @@ jobs:
       - name: Display SemVer
         run: |
           echo "SemVer: $GITVERSION_MAJORMINORPATCH"
+      - name: Create Tag
+        uses: negz/create-tag@v1
+        with:
+          version: ${{ env.GITVERSION_MAJORMINORPATCH }}
+          message: "Blockchain v.${{ env.GITVERSION_MAJORMINORPATCH }}"
+          token: ${{ secrets.GITHUB_TOKEN }}
