@@ -1,12 +1,14 @@
-name: CD deployment
+name: CD deployment with Jitpack
 
-on: workflow_dispatch
+on:
+  push:
+    branches: [ main ]
 
 permissions:
   contents: read
 
 jobs:
-  build_and_deploy:
+  deploy:
 
     runs-on: ubuntu-latest
 
