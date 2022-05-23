@@ -7,10 +7,11 @@ val kotestVersion: String by project
 plugins {
     application
     kotlin("jvm") version "1.6.21"
+    `maven-publish`
 }
 
 group = "me.danuser2018"
-version = "1.0-SNAPSHOT"
+version = "0.1.0"
 
 repositories {
     mavenCentral()
@@ -30,4 +31,16 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "me.danuser2018"
+            artifactId = "blockchain"
+            version = "0.1.0"
+
+            from(components["java"])
+        }
+    }
 }

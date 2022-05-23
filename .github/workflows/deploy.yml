@@ -1,12 +1,14 @@
-name: CD deployment
+name: CD deployment with Jitpack
 
-on: workflow_dispatch
+on:
+  push:
+    branches: [ main ]
 
 permissions:
   contents: read
 
 jobs:
-  build:
+  deploy:
 
     runs-on: ubuntu-latest
 
@@ -23,4 +25,10 @@ jobs:
         uses: gittools/actions/gitversion/execute@v0.9.7
       - name: Display SemVer
         run: |
-          echo "SemVer: $GITVERSION_SEMVER"
+          echo "SemVer: $GITVERSION_MAJORMINORPATCH"
+      - name: Create Tag
+        uses: negz/create-tag@v1
+        with:
+          version: ${{ env.GITVERSION_MAJORMINORPATCH }}
+          message: "Blockchain v.${{ env.GITVERSION_MAJORMINORPATCH }}"
+          token: ${{ secrets.CREATE_TAG_TOKEN }}
