@@ -1,3 +1,5 @@
+[![Kotlin CI with Gradle](https://github.com/danuser2018/blockchain/actions/workflows/build.yml/badge.svg)](https://github.com/danuser2018/blockchain/actions/workflows/build.yml)
+[![CD deployment with Jitpack](https://github.com/danuser2018/blockchain/actions/workflows/deploy.yml/badge.svg)](https://github.com/danuser2018/blockchain/actions/workflows/deploy.yml)
 [![](https://jitpack.io/v/danuser2018/blockchain.svg)](https://jitpack.io/#danuser2018/blockchain)
 # Librería Blockchain en Kotlin
 
