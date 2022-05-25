@@ -15,7 +15,12 @@ class ValidationTest : StringSpec({
     }
 
     "isValid() returns false for an empty chain where the only element is not a genesis block" {
-        val chain = emptyList<Block>().createBlock(System.currentTimeMillis(), 2.0, "a hash")
+        val chain = emptyList<Block>().createBlock(
+            System.currentTimeMillis(),
+            2.0,
+            "a hash",
+            "Hola mundo"
+        )
         chain.isValid() shouldBe false
     }
 
@@ -24,7 +29,8 @@ class ValidationTest : StringSpec({
             this.createBlock(
                 timestamp = System.currentTimeMillis(),
                 proof = 57870.0,
-                previousHash = this[0].hash()
+                previousHash = this[0].hash(),
+                data = "Hola mundo"
             )
         }
         chain.isValid() shouldBe true
@@ -35,7 +41,8 @@ class ValidationTest : StringSpec({
             this.createBlock(
                 timestamp = System.currentTimeMillis(),
                 proof = 57870.0,
-                previousHash = "previous_hash"
+                previousHash = "previous_hash",
+                data = "hola mundo"
             )
         }
         chain.isValid() shouldBe false
@@ -46,7 +53,8 @@ class ValidationTest : StringSpec({
             this.createBlock(
                 timestamp = System.currentTimeMillis(),
                 proof = 5.0,
-                previousHash = this[0].hash()
+                previousHash = this[0].hash(),
+                data = "Hola mundo"
             )
         }
         chain.isValid() shouldBe false

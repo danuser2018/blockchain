@@ -5,9 +5,9 @@ import io.kotest.matchers.shouldBe
 
 
 class BlockTest : StringSpec({
-    "genesisBlock() returns a block that can start a chain" {
+    "GenesisBlock is a block that can start a chain" {
         val now = System.currentTimeMillis()
-        genesisBlock(now).apply {
+        GenesisBlock(now).apply {
             index shouldBe 0
             proof shouldBe 1.0
             timestamp shouldBe now
