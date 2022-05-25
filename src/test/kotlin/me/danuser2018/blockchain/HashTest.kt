@@ -6,14 +6,15 @@ import io.kotest.matchers.shouldBe
 class HashTest: StringSpec({
 
     "Block's hash should be the result of apply SHA256 over a base64 of a json version of the block" {
-        val block = Block(
+        val block = DataBlock(
             index = 1,
             timestamp = 0L,
             proof = 1.0,
-            previousHash = "0"
+            previousHash = "0",
+            data = "Hola mundo"
         )
 
-        val expected = "e8dfb0fe32c957e690a023b013d7b0ef99a738a3cec74e573b366963a5495cb6"
+        val expected = "41a4e16eb4f5380d6f1bb44a56cdb5189feee7939763a86744000f38562571e0"
 
         block.hash() shouldBe expected
     }

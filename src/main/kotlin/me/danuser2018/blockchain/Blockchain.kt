@@ -1,15 +1,18 @@
 package me.danuser2018.blockchain
 
+import java.io.Serializable
+
 typealias Blockchain = List<Block>
 
-fun emptyBlockchain(timestamp: Long) = listOf(genesisBlock(timestamp))
+fun emptyBlockchain(timestamp: Long) = listOf(GenesisBlock(timestamp))
 
-fun Blockchain.createBlock(timestamp: Long, proof: ProofOfWork, previousHash: String): Blockchain =
-    toMutableList() + Block(
+fun <T : Serializable> Blockchain.createBlock(timestamp: Long, proof: ProofOfWork, previousHash: String, data: T): Blockchain =
+    toMutableList() + DataBlock(
         index = size,
         timestamp = timestamp,
         proof = proof,
-        previousHash = previousHash
+        previousHash = previousHash,
+        data
     )
 
 
