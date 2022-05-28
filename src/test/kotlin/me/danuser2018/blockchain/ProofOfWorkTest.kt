@@ -20,6 +20,13 @@ class ProofOfWorkTest : StringSpec({
         }
     }
 
+    "proofOfWork() with default functions returns a value that meet the expectations" {
+        val seed = random()
+        proofOfWork(seed = seed).apply {
+            hashWith4Zeros(powerOf2Diff(this, seed)) shouldBe true
+        }
+    }
+
     "isAValidProof returns true with valid values" {
         isAValidProof(
             curr = 16.0,
@@ -38,4 +45,20 @@ class ProofOfWorkTest : StringSpec({
         ) shouldBe false
     }
 
+    "powerOf2Diff returns the hash of the difference between the squares of a and b" {
+        powerOf2Diff(5.0, 2.0) shouldBe "49f7c1eb16994765833543f9c55f9c9274a6ace9e1b5e426999bce7677c67b82"
+    }
+
+    "hashWith4Zeros returns true only if the string passed as parameter starts with four zeros" {
+        hashWith4Zeros("") shouldBe false
+        hashWith4Zeros("0") shouldBe false
+        hashWith4Zeros("00") shouldBe false
+        hashWith4Zeros("000") shouldBe false
+        hashWith4Zeros("10000") shouldBe false
+        hashWith4Zeros(" 0000") shouldBe false
+        hashWith4Zeros(" 000") shouldBe false
+        hashWith4Zeros("0000") shouldBe true
+        hashWith4Zeros("000023412323") shouldBe true
+
+    }
 })
