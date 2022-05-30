@@ -1,6 +1,7 @@
 [![Kotlin CI with Gradle](https://github.com/danuser2018/blockchain/actions/workflows/build.yml/badge.svg)](https://github.com/danuser2018/blockchain/actions/workflows/build.yml)
 [![CD deployment with Jitpack](https://github.com/danuser2018/blockchain/actions/workflows/deploy.yml/badge.svg)](https://github.com/danuser2018/blockchain/actions/workflows/deploy.yml)
 [![](https://jitpack.io/v/danuser2018/blockchain.svg)](https://jitpack.io/#danuser2018/blockchain)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=danuser2018_blockchain&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=danuser2018_blockchain)
 # Librería Blockchain en Kotlin
 
 Mi propia implementación de un blockchain muy sencillo con fines educativos. Está desarrollado enteramente en Kotlin, 
