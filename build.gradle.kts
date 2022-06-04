@@ -9,6 +9,7 @@ plugins {
     kotlin("jvm") version "1.6.21"
     `maven-publish`
     id("org.sonarqube") version "3.3"
+    jacoco
 }
 
 group = "me.danuser2018"
@@ -32,6 +33,11 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
 }
 
 publishing {
