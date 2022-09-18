@@ -2,6 +2,7 @@ package me.danuser2018.blockchain
 
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
+import me.danuser2018.blockchain.Block.DataBlock
 
 class HashTest: StringSpec({
 
