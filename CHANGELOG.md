@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.2.0] - 2022-09-18
+
+### Changed
+
+- Custom data is now defined at blockchain level
+
 ## [2.1.3] - 2022-06-04
 
 ### Added
@@ -18,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - New SonarCloud quality badge
 
-### Changed
+### Changed 
 
 - Fix main branch for Sonar cloud analysis
 
